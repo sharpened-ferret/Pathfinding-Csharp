@@ -2,7 +2,7 @@
 
 public class Node
 {
-	Node parent;
+	public Node parent;
 	public int x;
 	public int y;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Pathfinding
 {
@@ -32,9 +33,25 @@ namespace Pathfinding
                 Console.WriteLine(line);
             }
 
-            //Executes pathfinding and prints result
+
+            //Executes IsRoute pathfinding and prints result
             Boolean completable = AStar.IsRoute(testMaze, 0, 0, 9, 9);
-            Console.WriteLine("\n Maze is completable? " + completable);
+            Console.WriteLine("\nMaze is completable? " + completable);
+
+            //Executes GetRoute and prints the resultant route
+            Console.WriteLine("\nMaze Trace:");
+            List<Node> route = AStar.GetRoute(testMaze, 0, 0, 9, 9);
+            if (route != null)
+            {
+                foreach (Node node in route)
+                {
+                    Console.WriteLine(String.Format("({0}, {1})", node.x, node.y));
+                }
+            }
+            else
+            {
+                Console.WriteLine("No Route Found");
+            }
         }
     }
 }
